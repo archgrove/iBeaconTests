@@ -23,6 +23,7 @@
 		072507F518A8FF49001BD96B /* BeaconTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 072507F418A8FF49001BD96B /* BeaconTestTests.m */; };
 		0725080018AAB11F001BD96B /* BeaconConfigurationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072507FF18AAB11F001BD96B /* BeaconConfigurationListViewController.m */; };
 		0725080318AAB157001BD96B /* BeaconConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0725080218AAB157001BD96B /* BeaconConfigurationViewController.m */; };
+		0783A1DD18ABA59B00906A29 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0783A1DC18ABA59B00906A29 /* Beacon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		072507FF18AAB11F001BD96B /* BeaconConfigurationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconConfigurationListViewController.m; sourceTree = "<group>"; };
 		0725080118AAB157001BD96B /* BeaconConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconConfigurationViewController.h; sourceTree = "<group>"; };
 		0725080218AAB157001BD96B /* BeaconConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconConfigurationViewController.m; sourceTree = "<group>"; };
+		0783A1DB18ABA59B00906A29 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
+		0783A1DC18ABA59B00906A29 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				072507D518A8FF49001BD96B /* AppDelegate.h */,
 				072507D618A8FF49001BD96B /* AppDelegate.m */,
 				072507D818A8FF49001BD96B /* Main.storyboard */,
+				0783A1DB18ABA59B00906A29 /* Beacon.h */,
+				0783A1DC18ABA59B00906A29 /* Beacon.m */,
 				072507DB18A8FF49001BD96B /* BeaconListViewController.h */,
 				072507DC18A8FF49001BD96B /* BeaconListViewController.m */,
 				072507FE18AAB11F001BD96B /* BeaconConfigurationListViewController.h */,
@@ -265,6 +270,7 @@
 				072507D718A8FF49001BD96B /* AppDelegate.m in Sources */,
 				0725080018AAB11F001BD96B /* BeaconConfigurationListViewController.m in Sources */,
 				072507DD18A8FF49001BD96B /* BeaconListViewController.m in Sources */,
+				0783A1DD18ABA59B00906A29 /* Beacon.m in Sources */,
 				0725080318AAB157001BD96B /* BeaconConfigurationViewController.m in Sources */,
 				072507D318A8FF49001BD96B /* main.m in Sources */,
 			);

@@ -9,49 +9,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
+#import "Beacon.h"
 #import "BeaconListViewController.h"
-
-@interface Beacon : NSObject
-
-@property (readonly) NSUUID *uuid;
-@property (readonly) int major;
-@property (readonly) int minor;
-@property CLProximity proximity;
-@property CLLocationAccuracy accuracy;
-
-- (instancetype)initWithUUID:(NSUUID*)uuid major:(int)major minor:(int)minor proximity:(CLProximity)proximity;
-
-@end
-
-@implementation Beacon
-
-- (instancetype)initWithUUID:(NSUUID*)uuid major:(int)major minor:(int)minor proximity:(CLProximity)proximity
-{
-    self = [super init];
-    
-    if (self)
-    {
-        _uuid = uuid;
-        _major = major;
-        _minor = minor;
-        _proximity = proximity;
-    }
-    
-    return self;
-}
-
-- (BOOL)isEqual:(id)object
-{
-    if (object == nil || ![object isKindOfClass:[Beacon class]])
-          return NO;
-    
-    Beacon *rhs = (Beacon*)object;
-    
-    return (rhs.major == self.major && rhs.minor == self.minor && [rhs.uuid isEqual:self.uuid]);
-}
-
-@end
-
 
 @implementation BeaconListViewController
 {
@@ -136,9 +95,13 @@
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
-    NSLog(@"Entered region %@", region.identifier);
-    
     [_locationManager startRangingBeaconsInRegion:_beaconRegion];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    [_beacons removeAllObjects];
+    [self.tableView reloadData];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -162,20 +125,27 @@
         if (clBeacon.proximity == CLProximityUnknown)
             continue;
         
-        Beacon *beacon = [[Beacon alloc] initWithUUID:clBeacon.proximityUUID major:clBeacon.major.intValue minor:clBeacon.minor.intValue proximity:clBeacon.proximity];
-    
-
-        if ([_beacons containsObject:beacon])
+        NSInteger currentIndex = [_beacons indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            Beacon *b = (Beacon*)obj;
+            
+            return ([b.uuid isEqual:clBeacon.proximityUUID] && b.major == clBeacon.major.intValue && b.minor == clBeacon.minor.intValue);
+        }];
+        
+        if (currentIndex != NSNotFound)
         {
-            NSInteger index = [_beacons indexOfObject:beacon];
-            [_beacons[index] setProximity:clBeacon.proximity];
-            [_beacons[index] setAccuracy:clBeacon.accuracy];
-            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]
+            [_beacons[currentIndex] setProximity:clBeacon.proximity];
+            [_beacons[currentIndex] setAccuracy:clBeacon.accuracy];
+            
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:currentIndex inSection:0]]
                                   withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         else
         {
-            [_beacons addObject:beacon];
+            Beacon *b = [[Beacon alloc] initWithUUID:clBeacon.proximityUUID major:clBeacon.major.intValue minor:clBeacon.minor.intValue];
+            b.proximity = clBeacon.proximity;
+            b.accuracy = clBeacon.accuracy;
+            
+            [_beacons addObject:b];
             [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:(_beacons.count - 1) inSection:0]]
                                   withRowAnimation:UITableViewRowAnimationAutomatic];
         }
