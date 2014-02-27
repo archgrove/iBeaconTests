@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eyL-te-s7F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eyL-te-s7F">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ckt-pb-3Yr" kind="relationship" relationship="rootViewController" id="MEI-oP-Onv"/>
+                        <segue destination="3Lq-d7-8yJ" kind="relationship" relationship="rootViewController" id="sJI-73-C71"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SB3-zC-K1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -41,52 +41,93 @@
             <point key="canvasLocation" x="256" y="93"/>
         </scene>
         <!--Beacon List View Controller - iBeacons-->
-        <scene sceneID="Ikq-HX-lQ6">
+        <scene sceneID="GOJ-eO-342">
             <objects>
-                <tableViewController title="iBeacons" id="ckt-pb-3Yr" customClass="BeaconListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="BGm-02-fN0">
+                <viewController id="3Lq-d7-8yJ" customClass="BeaconListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tsl-rK-mOW"/>
+                        <viewControllerLayoutGuide type="bottom" id="tjb-Qu-Mhz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L9g-lx-HT5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BeaconCell" textLabel="peW-AZ-ACt" detailTextLabel="7Og-oF-ztd" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="bar-Iy-LM1">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bar-Iy-LM1" id="Dkf-G9-H6W">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="peW-AZ-ACt">
-                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Og-oF-ztd">
-                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ckt-pb-3Yr" id="jT5-d2-sLj"/>
-                            <outlet property="delegate" destination="ckt-pb-3Yr" id="s0e-uX-mhD"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Beacons" id="liV-rc-pNe"/>
-                    <navigationItem key="navigationItem" title="iBeacons" id="wu9-am-OYP">
-                        <barButtonItem key="rightBarButtonItem" title="UUID" id="rPy-bq-WE5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tX7-DV-QL1">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="DHe-ws-jqo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="3Lq-d7-8yJ" id="5hM-K5-sSa"/>
+                                    <outlet property="delegate" destination="3Lq-d7-8yJ" id="cUW-i9-Bow"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="tX7-DV-QL1" secondAttribute="bottom" id="fej-d9-hL0"/>
+                            <constraint firstItem="tX7-DV-QL1" firstAttribute="leading" secondItem="L9g-lx-HT5" secondAttribute="leading" id="mNU-Ti-WnB"/>
+                            <constraint firstItem="tX7-DV-QL1" firstAttribute="top" secondItem="L9g-lx-HT5" secondAttribute="top" constant="65" id="t9j-1r-6x1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="iBeacons" id="rXC-Mb-u7Y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Avg-Un-15M">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EGC-bl-9dN">
+                                <rect key="frame" x="223" y="7" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Graph RSSI">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NTp-05-NBn" kind="push" id="Ivz-la-DEk"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XD0-hR-2Y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="tableView" destination="tX7-DV-QL1" id="bFS-1e-od4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JpR-eP-fW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="651" y="93"/>
+            <point key="canvasLocation" x="677" y="93"/>
+        </scene>
+        <!--Graph View Controller - Beacon RSSI graph-->
+        <scene sceneID="VEg-Tq-SrY">
+            <objects>
+                <viewController id="NTp-05-NBn" customClass="RSSIGraphViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oXu-Bx-ylV"/>
+                        <viewControllerLayoutGuide type="bottom" id="oeC-mR-EfV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9de-w0-93D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU8-qF-c64" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="0.0" y="65" width="320" height="453"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vU8-qF-c64" firstAttribute="top" secondItem="9de-w0-93D" secondAttribute="top" constant="65" id="QRY-3k-JOa"/>
+                            <constraint firstAttribute="bottom" secondItem="vU8-qF-c64" secondAttribute="bottom" constant="50" id="Tcg-B6-di0"/>
+                            <constraint firstItem="vU8-qF-c64" firstAttribute="leading" secondItem="9de-w0-93D" secondAttribute="leading" id="Tkp-ap-joi"/>
+                            <constraint firstAttribute="trailing" secondItem="vU8-qF-c64" secondAttribute="trailing" id="cqy-cX-yd0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Beacon RSSI graph" id="Mde-pi-Plx"/>
+                    <connections>
+                        <outlet property="_graphHost" destination="vU8-qF-c64" id="n41-4W-hDs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jt4-Tu-Pv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="87"/>
         </scene>
         <!--Navigation Controller - Configure-->
         <scene sceneID="1f5-86-IYx">

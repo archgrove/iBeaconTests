@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BeaconManager.h"
 
-@interface BeaconListViewController : UITableViewController<CLLocationManagerDelegate>
+@interface BeaconListViewController : UIViewController<BeaconManagerDelegate>
 
 @end

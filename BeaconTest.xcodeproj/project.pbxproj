@@ -23,6 +23,12 @@
 		072507F518A8FF49001BD96B /* BeaconTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 072507F418A8FF49001BD96B /* BeaconTestTests.m */; };
 		0725080018AAB11F001BD96B /* BeaconConfigurationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072507FF18AAB11F001BD96B /* BeaconConfigurationListViewController.m */; };
 		0725080318AAB157001BD96B /* BeaconConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0725080218AAB157001BD96B /* BeaconConfigurationViewController.m */; };
+		0733732F18BF6512007DF655 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0733732E18BF6512007DF655 /* libCorePlot-CocoaTouch.a */; };
+		0733733118BF652B007DF655 /* CorePlotHeaders in Resources */ = {isa = PBXBuildFile; fileRef = 0733733018BF652B007DF655 /* CorePlotHeaders */; };
+		0733733318BF654E007DF655 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0733733218BF654E007DF655 /* QuartzCore.framework */; };
+		0733733618BF6590007DF655 /* RSSIGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733733518BF6590007DF655 /* RSSIGraphViewController.m */; };
+		0733733918BF9AF8007DF655 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733733818BF9AF8007DF655 /* BeaconManager.m */; };
+		0733733E18BFDBBE007DF655 /* FilteringBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0733733D18BFDBBE007DF655 /* FilteringBeacon.m */; };
 		0783A1DD18ABA59B00906A29 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0783A1DC18ABA59B00906A29 /* Beacon.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +66,16 @@
 		072507FF18AAB11F001BD96B /* BeaconConfigurationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconConfigurationListViewController.m; sourceTree = "<group>"; };
 		0725080118AAB157001BD96B /* BeaconConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconConfigurationViewController.h; sourceTree = "<group>"; };
 		0725080218AAB157001BD96B /* BeaconConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconConfigurationViewController.m; sourceTree = "<group>"; };
+		0733732E18BF6512007DF655 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
+		0733733018BF652B007DF655 /* CorePlotHeaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CorePlotHeaders; sourceTree = SOURCE_ROOT; };
+		0733733218BF654E007DF655 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0733733418BF6590007DF655 /* RSSIGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSIGraphViewController.h; sourceTree = "<group>"; };
+		0733733518BF6590007DF655 /* RSSIGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSIGraphViewController.m; sourceTree = "<group>"; };
+		0733733718BF9AF8007DF655 /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconManager.h; sourceTree = "<group>"; };
+		0733733818BF9AF8007DF655 /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconManager.m; sourceTree = "<group>"; };
+		0733733B18BF9B12007DF655 /* BeaconManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeaconManagerDelegate.h; sourceTree = "<group>"; };
+		0733733C18BFDBBE007DF655 /* FilteringBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilteringBeacon.h; sourceTree = "<group>"; };
+		0733733D18BFDBBE007DF655 /* FilteringBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilteringBeacon.m; sourceTree = "<group>"; };
 		0783A1DB18ABA59B00906A29 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
 		0783A1DC18ABA59B00906A29 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0733733318BF654E007DF655 /* QuartzCore.framework in Frameworks */,
+				0733732F18BF6512007DF655 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				072507C918A8FF49001BD96B /* CoreGraphics.framework in Frameworks */,
 				072507CB18A8FF49001BD96B /* UIKit.framework in Frameworks */,
 				072507C718A8FF49001BD96B /* Foundation.framework in Frameworks */,
@@ -110,6 +128,8 @@
 		072507C518A8FF49001BD96B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0733733218BF654E007DF655 /* QuartzCore.framework */,
+				0733732E18BF6512007DF655 /* libCorePlot-CocoaTouch.a */,
 				072507C618A8FF49001BD96B /* Foundation.framework */,
 				072507C818A8FF49001BD96B /* CoreGraphics.framework */,
 				072507CA18A8FF49001BD96B /* UIKit.framework */,
@@ -121,13 +141,15 @@
 		072507CC18A8FF49001BD96B /* BeaconTest */ = {
 			isa = PBXGroup;
 			children = (
+				0733733A18BF9AFE007DF655 /* Beacons */,
+				0733733018BF652B007DF655 /* CorePlotHeaders */,
+				072507D818A8FF49001BD96B /* Main.storyboard */,
 				072507D518A8FF49001BD96B /* AppDelegate.h */,
 				072507D618A8FF49001BD96B /* AppDelegate.m */,
-				072507D818A8FF49001BD96B /* Main.storyboard */,
-				0783A1DB18ABA59B00906A29 /* Beacon.h */,
-				0783A1DC18ABA59B00906A29 /* Beacon.m */,
 				072507DB18A8FF49001BD96B /* BeaconListViewController.h */,
 				072507DC18A8FF49001BD96B /* BeaconListViewController.m */,
+				0733733418BF6590007DF655 /* RSSIGraphViewController.h */,
+				0733733518BF6590007DF655 /* RSSIGraphViewController.m */,
 				072507FE18AAB11F001BD96B /* BeaconConfigurationListViewController.h */,
 				072507FF18AAB11F001BD96B /* BeaconConfigurationListViewController.m */,
 				0725080118AAB157001BD96B /* BeaconConfigurationViewController.h */,
@@ -165,6 +187,20 @@
 				072507F118A8FF49001BD96B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0733733A18BF9AFE007DF655 /* Beacons */ = {
+			isa = PBXGroup;
+			children = (
+				0783A1DB18ABA59B00906A29 /* Beacon.h */,
+				0783A1DC18ABA59B00906A29 /* Beacon.m */,
+				0733733C18BFDBBE007DF655 /* FilteringBeacon.h */,
+				0733733D18BFDBBE007DF655 /* FilteringBeacon.m */,
+				0733733B18BF9B12007DF655 /* BeaconManagerDelegate.h */,
+				0733733718BF9AF8007DF655 /* BeaconManager.h */,
+				0733733818BF9AF8007DF655 /* BeaconManager.m */,
+			);
+			name = Beacons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +285,7 @@
 				072507E218A8FF49001BD96B /* Images.xcassets in Resources */,
 				072507D118A8FF49001BD96B /* InfoPlist.strings in Resources */,
 				072507DA18A8FF49001BD96B /* Main.storyboard in Resources */,
+				0733733118BF652B007DF655 /* CorePlotHeaders in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,11 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0733733618BF6590007DF655 /* RSSIGraphViewController.m in Sources */,
 				072507D718A8FF49001BD96B /* AppDelegate.m in Sources */,
 				0725080018AAB11F001BD96B /* BeaconConfigurationListViewController.m in Sources */,
 				072507DD18A8FF49001BD96B /* BeaconListViewController.m in Sources */,
 				0783A1DD18ABA59B00906A29 /* Beacon.m in Sources */,
+				0733733918BF9AF8007DF655 /* BeaconManager.m in Sources */,
 				0725080318AAB157001BD96B /* BeaconConfigurationViewController.m in Sources */,
+				0733733E18BFDBBE007DF655 /* FilteringBeacon.m in Sources */,
 				072507D318A8FF49001BD96B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +437,7 @@
 		072507F918A8FF49001BD96B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -404,8 +445,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconTest/BeaconTest-Prefix.pch";
 				INFOPLIST_FILE = "BeaconTest/BeaconTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/adamw/Projects/BeaconTest,
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -413,6 +463,7 @@
 		072507FA18A8FF49001BD96B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -420,8 +471,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconTest/BeaconTest-Prefix.pch";
 				INFOPLIST_FILE = "BeaconTest/BeaconTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/adamw/Projects/BeaconTest,
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

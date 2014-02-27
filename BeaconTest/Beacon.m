@@ -9,8 +9,11 @@
 #import "Beacon.h"
 
 @implementation Beacon
+{
+    
+}
 
-- (instancetype)initWithUUID:(NSUUID*)uuid major:(int)major minor:(int)minor
+- (instancetype)initWithUUID:(NSUUID*)uuid major:(NSInteger)major minor:(NSInteger)minor
 {
     self = [super init];
     
@@ -22,6 +25,17 @@
     }
     
     return self;
+}
+
+- (CGFloat)estimateDistanceFromTXPower:(CGFloat)txPower
+{
+    return sqrt([self linearPowerFromTXPower:txPower]);
+}
+
+- (CGFloat)linearPowerFromTXPower:(CGFloat)txPower
+{
+    CGFloat dbRatio = self.RSSI - txPower;
+    return pow(dbRatio / 10, 10);
 }
 
 @end

@@ -19,7 +19,6 @@ typedef NS_ENUM(NSInteger, ConfigurationListSection)
 static const NSInteger ConfigurationListSectionCount = 3;
 static NSArray *BeaconServiceUUIDs;
 
-
 @implementation BeaconConfigurationListViewController
 {
     CBCentralManager *centralManager;
@@ -27,6 +26,8 @@ static NSArray *BeaconServiceUUIDs;
     NSMutableArray *unknownDevices;
     NSMutableArray *beaconDevices;
     NSMutableArray *notBeaconDevices;
+    
+    BOOL shouldScan;
 }
 
 - (void)viewDidLoad
@@ -45,6 +46,7 @@ static NSArray *BeaconServiceUUIDs;
     unknownDevices = [NSMutableArray array];
     beaconDevices = [NSMutableArray array];
     notBeaconDevices = [NSMutableArray array];
+    shouldScan = NO;
     
     centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
@@ -52,30 +54,47 @@ static NSArray *BeaconServiceUUIDs;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    shouldScan = YES;
+    
+    if (centralManager.state == CBCentralManagerStatePoweredOn)
+        [centralManager scanForPeripheralsWithServices:nil options:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    
+    if (centralManager.state == CBCentralManagerStatePoweredOn)
+        [centralManager stopScan];
+    
+    for (CBPeripheral *p in unknownDevices)
+        [centralManager cancelPeripheralConnection:p];
+    for (CBPeripheral *p in beaconDevices)
+        [centralManager cancelPeripheralConnection:p];
+    for (CBPeripheral *p in notBeaconDevices)
+        [centralManager cancelPeripheralConnection:p];
+    
+    [unknownDevices removeAllObjects];
+    [beaconDevices removeAllObjects];
+    [notBeaconDevices removeAllObjects];
 }
 
 #pragma mark - CB Central manager delegate
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    if (central.state == CBCentralManagerStatePoweredOn)
+    if (shouldScan && central.state == CBCentralManagerStatePoweredOn)
         [central scanForPeripheralsWithServices:nil options:nil];
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral
      advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    // Record this as an unknown device
     NSLog(@"Found peripheral %@", peripheral.name);
     [unknownDevices addObject:peripheral];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:ConfigurationListUnknownSection] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    // Connect to it so we can discover services
+
     [central connectPeripheral:peripheral options:nil];
 }
 
@@ -216,18 +235,5 @@ static NSArray *BeaconServiceUUIDs;
     
     return cell;
 }
-
-/*
- 
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

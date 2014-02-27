@@ -12,11 +12,17 @@
 @interface Beacon : NSObject
 
 @property (readonly) NSUUID *uuid;
-@property (readonly) int major;
-@property (readonly) int minor;
+@property (readonly) NSInteger major;
+@property (readonly) NSInteger minor;
+
 @property CLProximity proximity;
 @property CLLocationAccuracy accuracy;
+@property NSInteger RSSI;
+@property NSTimeInterval lastSeenTime;
 
-- (instancetype)initWithUUID:(NSUUID*)uuid major:(int)major minor:(int)minor;
+- (instancetype)initWithUUID:(NSUUID*)uuid major:(NSInteger)major minor:(NSInteger)minor;
+
+- (CGFloat)estimateDistanceFromTXPower:(CGFloat)txPower;
+- (CGFloat)linearPowerFromTXPower:(CGFloat)txPower;
 
 @end
